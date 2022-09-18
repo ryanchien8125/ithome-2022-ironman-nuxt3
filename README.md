@@ -17,4 +17,4 @@ Modern Web
 
 
 ## 系列文章
-敬請期待
+[Day 01] [淺談 CSR、SSR 與 SSG](https://ithelp.ithome.com.tw/articles/10291291)  
