@@ -18,3 +18,4 @@ Modern Web
 
 ## 系列文章
 [Day 01] [淺談 CSR、SSR 與 SSG](https://ithelp.ithome.com.tw/articles/10291291)  
+[Day 02] [Nuxt 3 介紹](https://ithelp.ithome.com.tw/articles/10292483)  
