@@ -20,3 +20,4 @@ Modern Web
 [Day 01] [淺談 CSR、SSR 與 SSG](https://ithelp.ithome.com.tw/articles/10291291)  
 [Day 02] [Nuxt 3 介紹](https://ithelp.ithome.com.tw/articles/10292483)  
 [Day 03] [Nuxt 3 - 使用 nuxi 建立第一個專案](https://ithelp.ithome.com.tw/articles/10293273)  
+[Day 04] [Nuxt 3 + TypeScript + ESLint + Prettier 環境建置](https://ithelp.ithome.com.tw/articles/10293758)  
