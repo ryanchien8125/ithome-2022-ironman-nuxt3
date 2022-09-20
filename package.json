@@ -19,6 +19,7 @@
     "postcss": "^8.4.16",
     "postcss-custom-properties": "^12.1.9",
     "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8",
     "vue-tsc": "^0.40.13"
   }
