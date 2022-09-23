@@ -1,6 +1,17 @@
 <template>
-  <div class="bg-sky-100 py-2">
-    <p class="px-6 py-4 text-2xl text-gray-700">這是預設的布局，全部頁面都會使用到</p>
+  <div>
+    <header class="m-4 rounded border-gray-200 bg-gray-50 p-3">
+      <div class="container mx-auto flex flex-wrap items-center justify-center md:justify-between">
+        <NuxtLink to="/" class="flex items-center">
+          <span class="self-center whitespace-nowrap text-xl font-semibold text-sky-500"
+            >Nuxt 3 學習筆記</span
+          >
+        </NuxtLink>
+        <div class="hidden w-full md:block md:w-auto">
+          <span class="text-slate-600">Ryan</span>
+        </div>
+      </div>
+    </header>
     <slot />
   </div>
 </template>
