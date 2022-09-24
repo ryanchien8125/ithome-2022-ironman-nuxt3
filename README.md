@@ -22,3 +22,4 @@ Modern Web
 [Day 03] [Nuxt 3 - 使用 nuxi 建立第一個專案](https://ithelp.ithome.com.tw/articles/10293273)  
 [Day 04] [Nuxt 3 + TypeScript + ESLint + Prettier 環境建置](https://ithelp.ithome.com.tw/articles/10293758)  
 [Day 05] [Nuxt 3 如何使用 Tailwind CSS](https://ithelp.ithome.com.tw/articles/10294705)  
+[Day 06] [Nuxt 3 目錄結構與自動載入 (Auto Imports)](https://ithelp.ithome.com.tw/articles/10295432)  
