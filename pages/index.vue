@@ -5,6 +5,7 @@
       <div class="my-4 flex space-x-4">
         <NuxtLink to="/options-api">Options API</NuxtLink>
         <NuxtLink to="/composition-api">Composition API</NuxtLink>
+        <NuxtLink to="/use-counter">useCounter</NuxtLink>
       </div>
     </div>
   </div>
