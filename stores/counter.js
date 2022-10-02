@@ -14,5 +14,14 @@ export const useCounterStore = defineStore('counter', {
   },
   getters: {
     doubleCount: (state) => state.count * 2
+  },
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: 'counter',
+        storage: process.client ? localStorage : null
+      }
+    ]
   }
 })
