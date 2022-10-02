@@ -5,6 +5,7 @@
       <div class="my-4 flex flex-col space-y-4">
         <NuxtLink to="/counter">前往 /counter</NuxtLink>
         <NuxtLink to="/show">前往 /show</NuxtLink>
+        <NuxtLink to="/profile">前往 /profile</NuxtLink>
       </div>
     </div>
   </div>
