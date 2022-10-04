@@ -20,6 +20,7 @@
     "nuxt-icon": "^0.1.6",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "vue-tsc": "^0.40.13"
+    "vue-tsc": "^0.40.13",
+    "vue3-google-login": "^2.0.12"
   }
 }
