@@ -28,6 +28,13 @@
         </button>
       </div>
     </div>
+
+    <div v-if="userInfo" class="flex flex-col mt-8 w-full max-w-md">
+      <div v-for="key in Object.keys(userInfo)" class="mt-1 flex flex-wrap break-all">
+        <label class="text-lg font-semibold text-emerald-500"> {{ key }}:</label>
+        <span class="ml-2 flex flex-1 text-lg text-slate-700">{{ userInfo[key] }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,11 +44,25 @@ import { googleTokenLogin } from 'vue3-google-login'
 const runtimeConfig = useRuntimeConfig()
 const { googleClientId: GOOGLE_CLIENT_ID } = runtimeConfig.public
 
-const handleGoogleLogin = () => {
-  googleTokenLogin({
+const userInfo = ref()
+
+const handleGoogleLogin = async () => {
+  const accessToken = await googleTokenLogin({
     clientId: GOOGLE_CLIENT_ID
-  }).then((response) => {
-    console.log(response)
+  }).then((response) => response?.access_token)
+
+  if (!accessToken) {
+    return '登入失敗'
+  }
+
+  const { data } = await useFetch('/api/auth/google', {
+    method: 'POST',
+    body: {
+      accessToken
+    },
+    initialCache: false
   })
+
+  userInfo.value = data.value
 }
 </script>
