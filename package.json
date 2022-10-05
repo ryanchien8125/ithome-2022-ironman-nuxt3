@@ -16,10 +16,13 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.5.1",
+    "google-auth-library": "^8.5.2",
+    "jsonwebtoken": "^8.5.1",
     "nuxt": "^3.0.0-rc.11",
     "nuxt-icon": "^0.1.6",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "vue-tsc": "^0.40.13"
+    "vue-tsc": "^0.40.13",
+    "vue3-google-login": "^2.0.12"
   }
 }
