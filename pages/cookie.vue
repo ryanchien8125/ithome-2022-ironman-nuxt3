@@ -30,6 +30,15 @@
           <span class="ml-2 flex text-lg text-slate-700">{{ counter }}</span>
         </div>
       </div>
+      <div class="mt-2 flex w-full max-w-md flex-col items-center">
+        <button
+          type="button"
+          class="mt-2 w-fit rounded-sm bg-emerald-500 py-2 px-4 text-sm text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          @click="sendRequest"
+        >
+          打 /api/cookie API
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -44,5 +53,9 @@ const setNameCookie = () => {
 
 const setCounterCookie = () => {
   counter.value = Math.round(Math.random() * 1000)
+}
+
+const sendRequest = () => {
+  useFetch('/api/cookie', { initialCache: false })
 }
 </script>
