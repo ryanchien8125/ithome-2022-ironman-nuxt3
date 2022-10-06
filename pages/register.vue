@@ -3,18 +3,32 @@
     <div class="w-full max-w-md">
       <div class="flex flex-col items-center">
         <Icon name="logos:nuxt-icon" size="80" />
-        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">登入帳號</h2>
+        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">註冊帳號</h2>
       </div>
 
       <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form class="space-y-6" @submit.prevent="handleEmailLogin">
+          <form class="space-y-6" @submit.prevent="handleRegister">
+            <div>
+              <label for="nickname" class="block text-sm font-medium text-gray-700">暱稱</label>
+              <div class="mt-1">
+                <input
+                  id="nickname"
+                  v-model="registerData.nickname"
+                  name="nickname"
+                  type="text"
+                  autocomplete="nickname"
+                  required
+                  class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
+                />
+              </div>
+            </div>
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700">電子信箱</label>
               <div class="mt-1">
                 <input
                   id="email"
-                  v-model="loginData.email"
+                  v-model="registerData.email"
                   name="email"
                   type="email"
                   autocomplete="email"
@@ -29,7 +43,7 @@
               <div class="mt-1">
                 <input
                   id="password"
-                  v-model="loginData.password"
+                  v-model="registerData.password"
                   name="password"
                   type="password"
                   autocomplete="current-password"
@@ -44,7 +58,7 @@
                 type="submit"
                 class="flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                登入
+                註冊
               </button>
             </div>
           </form>
@@ -94,9 +108,9 @@
             <button
               type="button"
               class="group relative flex w-full justify-center rounded-md border border-gray-100 bg-white py-2 px-4 text-sm font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-              @click="navigateTo('/register')"
+              @click="navigateTo('/login')"
             >
-              <span class="text-slate-500 group-hover:text-slate-600">使用電子信箱註冊</span>
+              <span class="text-slate-500 group-hover:text-slate-600">回到登入頁面</span>
             </button>
           </div>
         </div>
@@ -112,21 +126,22 @@ const { push: pushNotify } = useNotification()
 const runtimeConfig = useRuntimeConfig()
 const { googleClientId: GOOGLE_CLIENT_ID } = runtimeConfig.public
 
-const loginData = reactive({
+const registerData = reactive({
+  nickname: '',
   email: '',
   password: ''
 })
 
-const handleEmailLogin = async () => {
-  const { data, error } = await useFetch('/api/auth/login', {
+const handleRegister = async () => {
+  const { data, error } = await useFetch('/api/auth/register', {
     method: 'POST',
-    body: toRaw(loginData),
+    body: toRaw(registerData),
     initialCache: false
   })
 
   if (data.value) {
-    pushNotify('success', '登入成功', '請等待頁面自動跳轉')
-    navigateTo('/')
+    pushNotify('success', '註冊成功', '請等重新進行登入')
+    navigateTo('/login')
   } else {
     pushNotify('error', '登入失敗', error.value?.data?.message ?? '未知錯誤')
   }

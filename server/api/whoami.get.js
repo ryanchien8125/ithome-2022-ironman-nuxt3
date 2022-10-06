@@ -9,9 +9,7 @@ export default defineEventHandler((event) => {
     const { data: userInfo } = jwt.verify(jwtToken, runtimeConfig.jwtSignSecret)
 
     return {
-      id: userInfo.id,
-      nickname: userInfo.nickname,
-      email: userInfo.email
+      id: userInfo.id
     }
   } catch (e) {
     throw createError({
