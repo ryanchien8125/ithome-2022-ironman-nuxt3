@@ -1,24 +1,9 @@
-import jwt from 'jsonwebtoken'
 import db from '@/server/db'
 
-const runtimeConfig = useRuntimeConfig()
-
 export default defineEventHandler(async (event) => {
-  const jwtToken = getCookie(event, 'access_token')
+  const user = event.context?.auth?.user
 
-  let userInfo = null
-
-  try {
-    const { data } = jwt.verify(jwtToken, runtimeConfig.jwtSignSecret)
-    userInfo = data
-  } catch (e) {
-    throw createError({
-      statusCode: 401,
-      statusMessage: 'Unauthorized'
-    })
-  }
-
-  if (!userInfo?.id) {
+  if (!user?.id) {
     throw createError({
       statusCode: 401,
       statusMessage: 'Unauthorized'
@@ -26,7 +11,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const userRecord = await db.user.getUserById({
-    id: userInfo.id
+    id: user.id
   })
 
   if (!userRecord) {
