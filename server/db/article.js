@@ -7,6 +7,7 @@ class Article {
         data: {
           title: options.title,
           content: options.content,
+          summary: options.summary,
           cover: options.cover,
           tags: options.tags,
           authorId: options.authorId
