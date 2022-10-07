@@ -16,10 +16,22 @@
         </div>
         <div class="flex items-center text-base leading-5">
           <div class="flex flex-row items-center">
-            <NuxtLink class="px-3 py-2 text-gray-700 transition hover:text-emerald-500" to="/login">
-              登入
+            <NuxtLink
+              class="px-3 py-2 text-gray-700 transition hover:text-emerald-500"
+              to="/articles"
+            >
+              文章
             </NuxtLink>
-            <NavigationBarAvatarMenu />
+            <ClientOnly>
+              <NavigationBarAvatarMenu v-if="userProfile.id" />
+              <NuxtLink
+                v-else
+                class="px-3 py-2 text-gray-700 transition hover:text-emerald-500"
+                to="/login"
+              >
+                登入
+              </NuxtLink>
+            </ClientOnly>
           </div>
         </div>
       </nav>
@@ -27,3 +39,10 @@
     <slot />
   </div>
 </template>
+
+<script setup>
+import { useUserStore } from '@/stores/user'
+
+const userStore = useUserStore()
+const userProfile = computed(() => userStore.profile)
+</script>
