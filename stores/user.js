@@ -21,6 +21,38 @@ export const useUserStore = defineStore('user', {
       } else {
         return error.value?.data?.message ?? '未知錯誤'
       }
+    },
+    async emailLogin(loginrData) {
+      const { data, error } = await useFetch('/api/auth/login', {
+        method: 'POST',
+        body: loginrData,
+        initialCache: false
+      })
+
+      if (data.value) {
+        this.profile = data.value
+      }
+
+      return {
+        data,
+        error
+      }
+    },
+    async googleLogin(loginrData) {
+      const { data, error } = await useFetch('/api/auth/google', {
+        method: 'POST',
+        body: loginrData,
+        initialCache: false
+      })
+
+      if (data.value) {
+        this.profile = data.value
+      }
+
+      return {
+        data,
+        error
+      }
     }
   },
   persist: {
