@@ -30,7 +30,7 @@
                 {{ dayjs(article.createdAt).format('YYYY-MM-DD') }}
               </time>
               <p class="mt-2 text-sm text-gray-500">
-                {{ article.content }}
+                {{ article.summary }}
               </p>
               <span
                 aria-hidden="true"
