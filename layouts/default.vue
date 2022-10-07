@@ -15,10 +15,11 @@
           </a>
         </div>
         <div class="flex items-center text-base leading-5">
-          <div class="block">
+          <div class="flex flex-row items-center">
             <NuxtLink class="px-3 py-2 text-gray-700 transition hover:text-emerald-500" to="/login">
               登入
             </NuxtLink>
+            <NavigationBarAvatarMenu />
           </div>
         </div>
       </nav>
