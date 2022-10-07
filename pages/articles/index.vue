@@ -20,7 +20,13 @@
             :key="article.id"
             class="md:grid md:grid-cols-4 md:items-baseline"
           >
-            <div
+            <NuxtLink
+              :to="{
+                name: 'articles-id',
+                params: {
+                  id: article.id
+                }
+              }"
               class="group mx-4 flex cursor-pointer flex-col items-start py-6 px-4 transition hover:bg-gray-50 sm:rounded-2xl md:col-span-3 md:mx-0"
             >
               <h2 class="text-base font-semibold tracking-tight text-gray-700">
@@ -39,7 +45,7 @@
                 繼續閱讀
                 <Icon name="ri:arrow-right-s-line" />
               </span>
-            </div>
+            </NuxtLink>
             <time class="order-first mt-1 mb-3 hidden items-center text-sm text-gray-400 md:flex">
               {{ dayjs(article.createdAt).format('YYYY-MM-DD') }}
             </time>

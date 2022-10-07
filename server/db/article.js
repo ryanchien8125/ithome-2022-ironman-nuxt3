@@ -43,6 +43,24 @@ class Article {
 
     return articleRecords
   }
+
+  async getArticleById(options = {}) {
+    const articleRecord = await prisma.article
+      .findFirst({
+        where: {
+          id: options.id
+        }
+      })
+      .catch((error) => {
+        console.error(error)
+        throw createError({
+          statusCode: 500,
+          statusMessage: 'Could not fon article. Please try again later.'
+        })
+      })
+
+    return articleRecord
+  }
 }
 
 const article = new Article()
