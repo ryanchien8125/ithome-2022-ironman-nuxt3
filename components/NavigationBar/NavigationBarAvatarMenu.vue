@@ -27,6 +27,25 @@
         >
           <div class="px-1 py-1">
             <MenuItem v-slot="{ active }">
+              <NuxtLink
+                :class="[
+                  active ? 'bg-emerald-500 text-white' : 'text-gray-900',
+                  'group flex w-full items-center rounded-md px-2 py-2 text-sm'
+                ]"
+                to="/manage/articles/create"
+              >
+                <Icon
+                  :active="active"
+                  class="mr-2 h-5 w-5 text-emerald-400"
+                  name="ri:pencil-line"
+                  aria-hidden="true"
+                />
+                撰寫文章
+              </NuxtLink>
+            </MenuItem>
+          </div>
+          <div class="px-1 py-1">
+            <MenuItem v-slot="{ active }">
               <button
                 :class="[
                   active ? 'bg-emerald-500 text-white' : 'text-gray-900',
