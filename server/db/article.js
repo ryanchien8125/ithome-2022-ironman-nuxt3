@@ -22,6 +22,26 @@ class Article {
 
     return articleRecord
   }
+
+  async getArticles(options = {}) {
+    const articleRecords = await prisma.article
+      .findMany({
+        orderBy: {
+          createdAt: 'desc'
+        },
+        skip: options.pageSize ? options.page * options.pageSize : undefined,
+        take: options.pageSize
+      })
+      .catch((error) => {
+        console.error(error)
+        throw createError({
+          statusCode: 500,
+          statusMessage: 'Could not get article. Please try again later.'
+        })
+      })
+
+    return articleRecords
+  }
 }
 
 const article = new Article()

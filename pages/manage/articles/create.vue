@@ -115,7 +115,7 @@ const handleSubmit = async () => {
     pushNotify('error', '文章發布失敗', error.value.data.message)
   } else if (data) {
     pushNotify('success', '文章發布成功', '請等待頁面自動跳轉')
-    navigateTo('/')
+    navigateTo('/articles')
   }
 }
 </script>
