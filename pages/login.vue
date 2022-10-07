@@ -2,7 +2,9 @@
   <div class="flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md">
       <div class="flex flex-col items-center">
-        <Icon name="logos:nuxt-icon" size="80" />
+        <NuxtLink to="/">
+          <Icon name="logos:nuxt-icon" size="80" />
+        </NuxtLink>
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">登入帳號</h2>
       </div>
 
@@ -156,4 +158,8 @@ const handleGoogleLogin = async () => {
     pushNotify('error', '登入失敗', error.value?.data?.message ?? '未知錯誤')
   }
 }
+
+definePageMeta({
+  layout: false
+})
 </script>
