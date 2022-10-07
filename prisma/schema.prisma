@@ -28,6 +28,7 @@ model Article {
   id             Int      @id @default(autoincrement())
   title          String
   content        String
+  summary        String
   cover          String
   tags           String
   authorId       String?

@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full justify-center">
-    <div class="flex w-full max-w-3xl justify-center">
+    <div class="mb-8 flex w-full max-w-3xl justify-center">
       <form class="w-full space-y-8 divide-y divide-gray-200" @submit.prevent="handleSubmit">
         <div class="space-y-8 divide-y divide-gray-200">
           <div>
@@ -27,7 +27,7 @@
 
               <div class="col-span-12">
                 <label for="cover" class="block text-sm font-medium text-gray-700">
-                  文章圖片連結
+                  文章封面圖片連結
                 </label>
                 <div class="mt-1">
                   <input
@@ -44,13 +44,13 @@
               <div class="col-span-12">
                 <label for="about" class="block text-sm font-medium text-gray-700">文章內容</label>
                 <div class="mt-1">
-                  <textarea
-                    id="content"
-                    v-model="articleData.content"
-                    name="content"
-                    rows="8"
-                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
-                  />
+                  <ClientOnly>
+                    <ArticleEditor
+                      ref="editor"
+                      v-model="articleData.content"
+                      @update:summary="onUpdateSummary"
+                    />
+                  </ClientOnly>
                 </div>
               </div>
 
@@ -99,9 +99,12 @@ const { push: pushNotify } = useNotification()
 const articleData = reactive({
   title: '',
   content: '',
+  summary: '',
   cover: '',
   tags: ''
 })
+
+const editor = ref()
 
 const handleSubmit = async () => {
   const { data, error } = await useFetch('/api/manage/articles', {
@@ -117,5 +120,9 @@ const handleSubmit = async () => {
     pushNotify('success', '文章發布成功', '請等待頁面自動跳轉')
     navigateTo('/articles')
   }
+}
+
+const onUpdateSummary = (summary) => {
+  articleData.summary = summary
 }
 </script>

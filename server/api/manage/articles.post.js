@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
   const articleRecord = await db.article.createArticle({
     title: body.title,
     content: body.content,
+    summary: body.summary,
     cover: body.cover,
     tags: body.tags,
     authorId
