@@ -21,4 +21,17 @@ model User {
   emailVerified  Boolean  @default(false)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  Article        Article[]
+}
+
+model Article {
+  id             Int      @id @default(autoincrement())
+  title          String
+  content        String
+  cover          String
+  tags           String
+  authorId       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  User           User?    @relation(fields: [authorId], references: [id])
 }
