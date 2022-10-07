@@ -61,6 +61,24 @@ class User {
 
     return userRecord
   }
+
+  async getUserById(options) {
+    const userRecord = await prisma.user
+      .findFirst({
+        where: {
+          id: options.id
+        }
+      })
+      .catch((error) => {
+        console.error(error)
+        throw createError({
+          statusCode: 500,
+          statusMessage: 'Could not find user. Please try again later.'
+        })
+      })
+
+    return userRecord
+  }
 }
 
 const user = new User()
