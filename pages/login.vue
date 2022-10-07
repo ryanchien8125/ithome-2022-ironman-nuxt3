@@ -109,10 +109,12 @@
 
 <script setup>
 import { googleTokenLogin } from 'vue3-google-login'
+import { useUserStore } from '@/stores/user'
 
 const { push: pushNotify } = useNotification()
 const runtimeConfig = useRuntimeConfig()
 const { googleClientId: GOOGLE_CLIENT_ID } = runtimeConfig.public
+const userStore = useUserStore()
 
 const loginData = reactive({
   email: '',
@@ -120,11 +122,7 @@ const loginData = reactive({
 })
 
 const handleEmailLogin = async () => {
-  const { data, error } = await useFetch('/api/auth/login', {
-    method: 'POST',
-    body: toRaw(loginData),
-    initialCache: false
-  })
+  const { data, error } = await userStore.emailLogin(toRaw(loginData))
 
   if (data.value) {
     pushNotify('success', '登入成功', '請等待頁面自動跳轉')
@@ -143,12 +141,8 @@ const handleGoogleLogin = async () => {
     return '登入失敗'
   }
 
-  const { data, error } = await useFetch('/api/auth/google', {
-    method: 'POST',
-    body: {
-      accessToken
-    },
-    initialCache: false
+  const { data, error } = await userStore.googleLogin({
+    accessToken
   })
 
   if (data.value) {
