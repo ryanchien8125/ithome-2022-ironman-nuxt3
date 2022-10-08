@@ -160,7 +160,7 @@ const handleGoogleLogin = async () => {
 }
 
 definePageMeta({
-  layout: false,
+  layout: 'teal',
   middleware: 'logged-in-redirect',
   pageTransition: {
     name: 'rotate'

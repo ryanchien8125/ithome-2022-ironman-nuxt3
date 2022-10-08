@@ -177,6 +177,6 @@ const handleGoogleLogin = async () => {
 }
 
 definePageMeta({
-  layout: false
+  layout: 'green'
 })
 </script>
