@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="flex w-full justify-center">
-      <nav class="flex w-full max-w-7xl items-center justify-between py-2">
+      <nav class="flex w-full max-w-7xl items-center justify-between py-2 px-6">
         <div>
           <a aria-label="TailwindBlog" href="/">
             <div class="flex items-center justify-between">

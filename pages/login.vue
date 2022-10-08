@@ -96,7 +96,12 @@
             <button
               type="button"
               class="group relative flex w-full justify-center rounded-md border border-gray-100 bg-white py-2 px-4 text-sm font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-              @click="navigateTo('/register')"
+              @click="
+                navigateTo({
+                  path: '/register',
+                  query: { redirect_to: $route.query.redirect_to }
+                })
+              "
             >
               <span class="text-slate-500 group-hover:text-slate-600">使用電子信箱註冊</span>
             </button>
@@ -115,6 +120,7 @@ const { push: pushNotify } = useNotification()
 const runtimeConfig = useRuntimeConfig()
 const { googleClientId: GOOGLE_CLIENT_ID } = runtimeConfig.public
 const userStore = useUserStore()
+const route = useRoute()
 
 const loginData = reactive({
   email: '',
@@ -126,7 +132,7 @@ const handleEmailLogin = async () => {
 
   if (data.value) {
     pushNotify('success', '登入成功', '請等待頁面自動跳轉')
-    navigateTo('/')
+    navigateTo(route.query.redirect_to ?? '/')
   } else {
     pushNotify('error', '登入失敗', error.value?.data?.message ?? '未知錯誤')
   }
@@ -147,13 +153,14 @@ const handleGoogleLogin = async () => {
 
   if (data.value) {
     pushNotify('success', '登入成功', '請等待頁面自動跳轉')
-    navigateTo('/')
+    navigateTo(route.query.redirect_to ?? '/')
   } else {
     pushNotify('error', '登入失敗', error.value?.data?.message ?? '未知錯誤')
   }
 }
 
 definePageMeta({
-  layout: false
+  layout: false,
+  middleware: 'logged-in-redirect'
 })
 </script>
