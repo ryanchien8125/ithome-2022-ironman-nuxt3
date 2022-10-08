@@ -129,6 +129,7 @@ const { push: pushNotify } = useNotification()
 const runtimeConfig = useRuntimeConfig()
 const { googleClientId: GOOGLE_CLIENT_ID } = runtimeConfig.public
 const userStore = useUserStore()
+const route = useRoute()
 
 const registerData = reactive({
   nickname: '',
@@ -145,7 +146,10 @@ const handleRegister = async () => {
 
   if (data.value) {
     pushNotify('success', '註冊成功', '請等重新進行登入')
-    navigateTo('/login')
+    navigateTo({
+      path: '/login',
+      query: { redirect_to: route.query.redirect_to }
+    })
   } else {
     pushNotify('error', '登入失敗', error.value?.data?.message ?? '未知錯誤')
   }
@@ -166,7 +170,7 @@ const handleGoogleLogin = async () => {
 
   if (data.value) {
     pushNotify('success', '登入成功', '請等待頁面自動跳轉')
-    navigateTo('/')
+    navigateTo(route.query.redirect_to ?? '/')
   } else {
     pushNotify('error', '登入失敗', error.value?.data?.message ?? '未知錯誤')
   }
