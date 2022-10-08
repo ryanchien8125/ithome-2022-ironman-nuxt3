@@ -161,6 +161,9 @@ const handleGoogleLogin = async () => {
 
 definePageMeta({
   layout: false,
-  middleware: 'logged-in-redirect'
+  middleware: 'logged-in-redirect',
+  pageTransition: {
+    name: 'rotate'
+  }
 })
 </script>
