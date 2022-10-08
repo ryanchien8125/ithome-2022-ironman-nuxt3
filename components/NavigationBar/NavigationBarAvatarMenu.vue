@@ -82,6 +82,7 @@ const handleLogout = () => {
     initialCache: false
   }).then(() => {
     userStore.$reset()
+    navigateTo('/')
   })
 }
 </script>
