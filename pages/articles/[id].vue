@@ -23,4 +23,16 @@ const route = useRoute()
 const { data: article } = await useFetch(`/api/articles/${route.params.id}`, {
   initialCache: false
 })
+
+useHead({
+  meta: [
+    { name: 'description', content: `${article.value.summary} | Nuxt 3 Blog` },
+    { name: 'keywords', content: `${article.value.tags}` },
+    { property: 'og:title', content: `${article.value.title} | Nuxt 3 Blog` },
+    { property: 'og:description', content: article.value.summary },
+    { property: 'og:image', content: article.value.cover },
+    { property: 'og:image', content: article.value.cover }
+  ],
+  title: `${article.value.title} | Nuxt 3 Blog`
+})
 </script>
