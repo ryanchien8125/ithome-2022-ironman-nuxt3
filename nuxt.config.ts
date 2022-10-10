@@ -5,19 +5,15 @@ export default defineNuxtConfig({
     typeCheck: true
   },
   i18n: {
+    defaultLocale: 'zh',
+    langDir: 'locales',
+    locales: [
+      { code: 'en', file: 'en.json', iso: 'en-US', name: 'English' },
+      { code: 'zh', file: 'zh.json', iso: 'zh-TW', name: '繁體中文' }
+    ],
+    strategy: 'no_prefix',
     vueI18n: {
-      legacy: false,
-      locale: 'zh',
-      messages: {
-        en: {
-          hello: 'Hello!',
-          language: 'Language'
-        },
-        zh: {
-          hello: '你好!',
-          language: '語言'
-        }
-      }
+      legacy: false
     }
   }
 })
