@@ -23,10 +23,9 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-const { locale, locales, setLocaleCookie } = useI18n()
+const { locale, locales, setLocale } = useI18n()
 
 const changeLanguage = (localeCode) => {
-  locale.value = localeCode
-  setLocaleCookie(localeCode)
+  setLocale(localeCode)
 }
 </script>
