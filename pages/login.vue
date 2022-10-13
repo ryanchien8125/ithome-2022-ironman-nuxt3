@@ -5,14 +5,18 @@
         <NuxtLink to="/">
           <Icon name="logos:nuxt-icon" size="80" />
         </NuxtLink>
-        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">登入帳號</h2>
+        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">
+          {{ $t('auth.login') }}
+        </h2>
       </div>
 
       <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form class="space-y-6" @submit.prevent="handleEmailLogin">
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700">電子信箱</label>
+              <label for="email" class="block text-sm font-medium text-gray-700">
+                {{ $t('auth.email') }}
+              </label>
               <div class="mt-1">
                 <input
                   id="email"
@@ -27,7 +31,9 @@
             </div>
 
             <div>
-              <label for="password" class="block text-sm font-medium text-gray-700">密碼</label>
+              <label for="password" class="block text-sm font-medium text-gray-700">
+                {{ $t('auth.password') }}
+              </label>
               <div class="mt-1">
                 <input
                   id="password"
@@ -46,7 +52,7 @@
                 type="submit"
                 class="flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                登入
+                {{ $t('auth.login') }}
               </button>
             </div>
           </form>
@@ -91,7 +97,9 @@
                   </g>
                 </svg>
               </div>
-              <span class="text-slate-500 group-hover:text-slate-600">使用 Google 繼續</span>
+              <span class="text-slate-500 group-hover:text-slate-600">
+                {{ $t('auth.googleOAuth') }}
+              </span>
             </button>
             <button
               type="button"
@@ -103,7 +111,9 @@
                 })
               "
             >
-              <span class="text-slate-500 group-hover:text-slate-600">使用電子信箱註冊</span>
+              <span class="text-slate-500 group-hover:text-slate-600">
+                {{ $t('auth.continueWithEmail') }}
+              </span>
             </button>
           </div>
         </div>
@@ -114,6 +124,7 @@
 
 <script setup>
 import { googleTokenLogin } from 'vue3-google-login'
+import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user'
 
 const { push: pushNotify } = useNotification()
@@ -121,6 +132,7 @@ const runtimeConfig = useRuntimeConfig()
 const { googleClientId: GOOGLE_CLIENT_ID } = runtimeConfig.public
 const userStore = useUserStore()
 const route = useRoute()
+const { t } = useI18n()
 
 const loginData = reactive({
   email: '',
@@ -164,7 +176,9 @@ definePageMeta({
   middleware: 'logged-in-redirect'
 })
 
+const title = computed(() => t('auth.login'))
+
 useHead({
-  title: '登入帳號'
+  title
 })
 </script>

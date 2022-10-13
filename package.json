@@ -11,6 +11,7 @@
   "devDependencies": {
     "@headlessui/vue": "^1.7.3",
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
+    "@nuxtjs/i18n": "^8.0.0-alpha.3",
     "@nuxtjs/tailwindcss": "^5.3.3",
     "@pinia/nuxt": "^0.4.2",
     "@prisma/client": "^4.4.0",

@@ -9,7 +9,7 @@
               userProfile.avatar ??
               'https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80'
             "
-            alt="使用者選單"
+            :alt="$t('userMenu.name')"
           />
         </MenuButton>
       </div>
@@ -40,7 +40,7 @@
                   name="ri:pencil-line"
                   aria-hidden="true"
                 />
-                撰寫文章
+                {{ $t('userMenu.writeArticle') }}
               </NuxtLink>
             </MenuItem>
           </div>
@@ -59,7 +59,7 @@
                   name="ri:logout-box-line"
                   aria-hidden="true"
                 />
-                登出
+                {{ $t('navigationBar.logout') }}
               </button>
             </MenuItem>
           </div>

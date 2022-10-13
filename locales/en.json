@@ -1,0 +1,30 @@
+{
+  "navigationBar": {
+    "article": "Article",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "userMenu": {
+    "name": "User Menu",
+    "writeArticle": "Write Article"
+  },
+  "auth": {
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "googleOAuth": "Continue with Google",
+    "continueWithEmail": "Continue with email",
+    "nickname": "Nickname",
+    "backToLoginPage": "Back to login page"
+  },
+  "homepage": {
+    "title": "Home"
+  },
+  "articles": {
+    "title": "Articles",
+    "empty": "Currently no latest articles",
+    "continueReading": "Continue reading"
+  }
+}

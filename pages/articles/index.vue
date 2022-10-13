@@ -1,7 +1,9 @@
 <template>
   <div class="flex w-full flex-col items-center bg-white">
     <div class="item-center mt-8 flex w-full max-w-4xl flex-col px-8 md:items-start lg:px-0">
-      <h1 class="text-3xl font-semibold text-gray-800">所有文章</h1>
+      <h1 class="text-3xl font-semibold text-gray-800">
+        {{ $t('articles.title') }}
+      </h1>
       <p class="mt-2 mb-4 text-sm text-gray-500">
         這裡集結了 Nuxt 與 Vue 的技術文章，期待能將我的經驗分享給您
       </p>
@@ -12,7 +14,9 @@
       </div>
       <div v-else class="md:border-l md:border-gray-100">
         <div v-if="!articlesResponse || articlesResponse.data.length === 0">
-          <span class="text-gray-500">目前尚無最新文章</span>
+          <span class="text-gray-500">
+            {{ $t('articles.empty') }}
+          </span>
         </div>
         <div v-else class="flex flex-col space-y-4 md:pl-6">
           <article
@@ -42,7 +46,7 @@
                 aria-hidden="true"
                 class="mt-4 flex items-center text-sm font-medium text-emerald-500"
               >
-                繼續閱讀
+                {{ $t('articles.continueReading') }}
                 <Icon name="ri:arrow-right-s-line" />
               </span>
             </NuxtLink>
@@ -58,8 +62,10 @@
 
 <script setup>
 import dayjs from 'dayjs'
+import { useI18n } from 'vue-i18n'
 
 const { push: pushNotify } = useNotification()
+const { t } = useI18n()
 
 const {
   pending,
@@ -79,7 +85,9 @@ watch(error, (newError) => {
   }
 })
 
+const title = computed(() => t('articles.title'))
+
 useHead({
-  title: '所有文章'
+  title
 })
 </script>

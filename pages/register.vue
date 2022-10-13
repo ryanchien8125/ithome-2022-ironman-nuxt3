@@ -5,14 +5,18 @@
         <NuxtLink to="/">
           <Icon name="logos:nuxt-icon" size="80" />
         </NuxtLink>
-        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">註冊帳號</h2>
+        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">
+          {{ $t('auth.register') }}
+        </h2>
       </div>
 
       <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form class="space-y-6" @submit.prevent="handleRegister">
             <div>
-              <label for="nickname" class="block text-sm font-medium text-gray-700">暱稱</label>
+              <label for="nickname" class="block text-sm font-medium text-gray-700">
+                {{ $t('auth.nickname') }}
+              </label>
               <div class="mt-1">
                 <input
                   id="nickname"
@@ -26,7 +30,9 @@
               </div>
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700">電子信箱</label>
+              <label for="email" class="block text-sm font-medium text-gray-700">
+                {{ $t('auth.email') }}
+              </label>
               <div class="mt-1">
                 <input
                   id="email"
@@ -41,7 +47,9 @@
             </div>
 
             <div>
-              <label for="password" class="block text-sm font-medium text-gray-700">密碼</label>
+              <label for="password" class="block text-sm font-medium text-gray-700">
+                {{ $t('auth.password') }}
+              </label>
               <div class="mt-1">
                 <input
                   id="password"
@@ -60,14 +68,14 @@
                 type="submit"
                 class="flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                註冊
+                {{ $t('auth.register') }}
               </button>
             </div>
           </form>
 
           <div class="my-4 flex items-center backdrop:relative">
             <div class="flex-grow border-t border-gray-200"></div>
-            <span class="mx-4 flex-shrink text-gray-300">或</span>
+            <span class="mx-4 flex-shrink text-gray-300">{{ $t('or') }}</span>
             <div class="flex-grow border-t border-gray-200"></div>
           </div>
 
@@ -105,14 +113,18 @@
                   </g>
                 </svg>
               </div>
-              <span class="text-slate-500 group-hover:text-slate-600">使用 Google 繼續</span>
+              <span class="text-slate-500 group-hover:text-slate-600">
+                {{ $t('auth.googleOAuth') }}
+              </span>
             </button>
             <button
               type="button"
               class="group relative flex w-full justify-center rounded-md border border-gray-100 bg-white py-2 px-4 text-sm font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               @click="navigateTo('/login')"
             >
-              <span class="text-slate-500 group-hover:text-slate-600">回到登入頁面</span>
+              <span class="text-slate-500 group-hover:text-slate-600">
+                {{ $t('auth.backToLoginPage') }}
+              </span>
             </button>
           </div>
         </div>
@@ -123,6 +135,7 @@
 
 <script setup>
 import { googleTokenLogin } from 'vue3-google-login'
+import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user'
 
 const { push: pushNotify } = useNotification()
@@ -130,6 +143,7 @@ const runtimeConfig = useRuntimeConfig()
 const { googleClientId: GOOGLE_CLIENT_ID } = runtimeConfig.public
 const userStore = useUserStore()
 const route = useRoute()
+const { t } = useI18n()
 
 const registerData = reactive({
   nickname: '',
@@ -180,7 +194,9 @@ definePageMeta({
   layout: false
 })
 
+const title = computed(() => t('homepage'))
+
 useHead({
-  title: '註冊帳號'
+  title
 })
 </script>

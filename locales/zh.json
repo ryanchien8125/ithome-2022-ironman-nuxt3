@@ -1,0 +1,30 @@
+{
+  "navigationBar": {
+    "article": "文章",
+    "login": "登入",
+    "logout": "登出"
+  },
+  "userMenu": {
+    "name": "使用者選單",
+    "writeArticle": "撰寫文章"
+  },
+  "auth": {
+    "register": "註冊",
+    "login": "登入",
+    "logout": "登出",
+    "email": "電子信箱",
+    "password": "密碼",
+    "googleOAuth": "使用 Google 繼續",
+    "continueWithEmail": "使用電子信箱註冊",
+    "nickname": "暱稱",
+    "backToLoginPage": "回到登入頁面"
+  },
+  "homepage": {
+    "title": "首頁"
+  },
+  "articles": {
+    "title": "所有文章",
+    "empty": "目前尚無最新文章",
+    "continueReading": "繼續閱讀"
+  }
+}

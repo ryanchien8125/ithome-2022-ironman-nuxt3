@@ -20,8 +20,9 @@
               class="px-3 py-2 text-gray-700 transition hover:text-emerald-500"
               to="/articles"
             >
-              文章
+              {{ $t('navigationBar.article') }}
             </NuxtLink>
+            <LanguageSelector class="mx-3" />
             <ClientOnly>
               <NavigationBarAvatarMenu v-if="userProfile.id" />
               <NuxtLink
@@ -29,7 +30,7 @@
                 class="px-3 py-2 text-gray-700 transition hover:text-emerald-500"
                 to="/login"
               >
-                登入
+                {{ $t('navigationBar.login') }}
               </NuxtLink>
             </ClientOnly>
           </div>
