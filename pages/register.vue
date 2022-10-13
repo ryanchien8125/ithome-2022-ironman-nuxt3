@@ -179,4 +179,8 @@ const handleGoogleLogin = async () => {
 definePageMeta({
   layout: false
 })
+
+useHead({
+  title: '註冊帳號'
+})
 </script>

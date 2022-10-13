@@ -129,4 +129,8 @@ const onUpdateSummary = (summary) => {
 definePageMeta({
   middleware: 'manage-auth'
 })
+
+useHead({
+  title: '撰寫文章'
+})
 </script>

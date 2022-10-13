@@ -163,4 +163,8 @@ definePageMeta({
   layout: false,
   middleware: 'logged-in-redirect'
 })
+
+useHead({
+  title: '登入帳號'
+})
 </script>

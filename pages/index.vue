@@ -17,3 +17,9 @@
     </div>
   </div>
 </template>
+
+<script setup>
+useHead({
+  title: '首頁'
+})
+</script>
