@@ -1,7 +1,7 @@
 import { OAuth2Client } from 'google-auth-library'
 
 export default defineEventHandler(async (event) => {
-  const body = await useBody(event)
+  const body = await readBody(event)
   const oauth2Client = new OAuth2Client()
   oauth2Client.setCredentials({ access_token: body.accessToken })
 
