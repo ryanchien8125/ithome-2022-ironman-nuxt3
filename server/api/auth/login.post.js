@@ -5,7 +5,7 @@ import db from '@/server/db'
 const runtimeConfig = useRuntimeConfig()
 
 export default defineEventHandler(async (event) => {
-  const body = await useBody(event)
+  const body = await readBody(event)
 
   const userRecord = await db.user.getUserByEmail({
     email: body.email

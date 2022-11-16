@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 import db from '@/server/db'
 
 export default defineEventHandler(async (event) => {
-  const body = await useBody(event)
+  const body = await readBody(event)
 
   let userRecord = await db.user.getUserByEmail({
     email: body.email
