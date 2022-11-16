@@ -1,5 +1,5 @@
 export default defineEventHandler((event) => {
-  const query = useQuery(event)
+  const query = getQuery(event)
   return {
     ok: true,
     data: {
