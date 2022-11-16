@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 const runtimeConfig = useRuntimeConfig()
 
 export default defineEventHandler(async (event) => {
-  const body = await useBody(event)
+  const body = await readBody(event)
   const oauth2Client = new OAuth2Client()
   oauth2Client.setCredentials({ access_token: body.accessToken })
 
