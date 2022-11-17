@@ -1,11 +1,19 @@
 <template>
   <div>
-    <h1>{{ title }} - {{ name }}</h1>
+    <h1>{{ data.year }} {{ data.title }} - {{ data.name }}</h1>
   </div>
 </template>
 
 <script lang="ts" setup>
-const year: number = 2022
-const title: string = `${year} iThome 鐵人賽`
-const name: string = 'Ryan'
+interface Data {
+  year: number
+  title: string
+  name: string
+}
+
+const data: Data = {
+  year: 2022,
+  title: 'iThome 鐵人賽',
+  name: 'Ryan'
+}
 </script>
