@@ -10,7 +10,7 @@
 
       <div class="mt-4 flex justify-center">
         <ClientOnly>
-          <GoogleLogin :callback="callback"/>
+          <GoogleLogin :callback="callback" />
         </ClientOnly>
       </div>
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { googleOneTap } from "vue3-google-login"
+import { googleOneTap } from 'vue3-google-login'
 
 const callback = (response) => {
   console.log(response)
