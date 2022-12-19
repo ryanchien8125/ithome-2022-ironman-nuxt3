@@ -7,3 +7,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+setResponseStatus(404)
+</script>
