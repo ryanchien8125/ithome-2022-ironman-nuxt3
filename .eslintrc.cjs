@@ -1,11 +1,11 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2023: true
   },
-  extends: ['@nuxtjs', 'plugin:vue/vue3-recommended', 'prettier'],
+  extends: ['@nuxtjs', 'prettier'],
   parserOptions: {
-    ecmaVersion: 13,
+    ecmaVersion: 2023,
     sourceType: 'module'
   },
   plugins: ['prettier'],
