@@ -1,4 +1,4 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   typescript: {
@@ -8,5 +8,6 @@ export default defineNuxtConfig({
     theme: {
       primaryColor: '#0ea5e9'
     }
-  }
+  },
+  devtools: { enabled: true }
 })
