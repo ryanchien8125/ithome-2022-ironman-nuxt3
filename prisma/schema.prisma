@@ -8,6 +8,7 @@ generator client {
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
+  relationMode = "prisma"
 }
 
 model User {
