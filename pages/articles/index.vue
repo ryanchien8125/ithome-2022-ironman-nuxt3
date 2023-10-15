@@ -2,7 +2,7 @@
   <div class="flex w-full flex-col items-center bg-white">
     <div class="item-center mt-8 flex w-full max-w-4xl flex-col px-8 md:items-start lg:px-0">
       <h1 class="text-3xl font-semibold text-gray-800">所有文章</h1>
-      <p class="mt-2 mb-4 text-sm text-gray-500">
+      <p class="mb-4 mt-2 text-sm text-gray-500">
         這裡集結了 Nuxt 與 Vue 的技術文章，期待能將我的經驗分享給您
       </p>
     </div>
@@ -27,7 +27,7 @@
                   id: article.id
                 }
               }"
-              class="group mx-4 flex cursor-pointer flex-col items-start py-6 px-4 transition hover:bg-gray-50 sm:rounded-2xl md:col-span-3 md:mx-0"
+              class="group mx-4 flex cursor-pointer flex-col items-start px-4 py-6 transition hover:bg-gray-50 sm:rounded-2xl md:col-span-3 md:mx-0"
             >
               <h2 class="text-base font-semibold tracking-tight text-gray-700">
                 <span class="">{{ article.title }}</span>
@@ -46,7 +46,7 @@
                 <Icon name="ri:arrow-right-s-line" />
               </span>
             </NuxtLink>
-            <time class="order-first mt-1 mb-3 hidden items-center text-sm text-gray-400 md:flex">
+            <time class="order-first mb-3 mt-1 hidden items-center text-sm text-gray-400 md:flex">
               {{ dayjs(article.createdAt).format('YYYY-MM-DD') }}
             </time>
           </article>
@@ -74,7 +74,7 @@ if (error.value) {
 }
 
 watch(error, (newError) => {
-  if (!newError.value) {
+  if (!newError) {
     pushNotify('error', '取得文章失敗', error.value?.data?.message ?? '未知錯誤')
   }
 })
