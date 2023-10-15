@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
     <div class="w-full max-w-md">
       <div class="flex flex-col items-center">
         <h2 class="mt-2 text-center text-3xl font-bold tracking-tight text-gray-700">Cookie</h2>
@@ -7,7 +7,7 @@
       <div class="mt-2 flex w-full max-w-md flex-col items-center">
         <button
           type="button"
-          class="mt-2 w-fit rounded-sm bg-emerald-500 py-2 px-4 text-sm text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          class="mt-2 w-fit rounded-sm bg-emerald-500 px-4 py-2 text-sm text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
           @click="setNameCookie"
         >
           設置 name
@@ -20,7 +20,7 @@
       <div class="mt-2 flex w-full max-w-md flex-col items-center">
         <button
           type="button"
-          class="mt-2 w-fit rounded-sm bg-emerald-500 py-2 px-4 text-sm text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          class="mt-2 w-fit rounded-sm bg-emerald-500 px-4 py-2 text-sm text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
           @click="setCounterCookie"
         >
           設置 counter
@@ -33,7 +33,7 @@
       <div class="mt-2 flex w-full max-w-md flex-col items-center">
         <button
           type="button"
-          class="mt-2 w-fit rounded-sm bg-emerald-500 py-2 px-4 text-sm text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          class="mt-2 w-fit rounded-sm bg-emerald-500 px-4 py-2 text-sm text-white hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
           @click="sendRequest"
         >
           打 /api/cookie API
@@ -56,6 +56,6 @@ const setCounterCookie = () => {
 }
 
 const sendRequest = () => {
-  useFetch('/api/cookie', { initialCache: false })
+  useFetch('/api/cookie')
 }
 </script>
