@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
     <div class="w-full max-w-md">
       <div class="flex flex-col items-center">
         <Icon name="logos:nuxt-icon" size="80" />
@@ -11,7 +11,7 @@
       <div class="mt-4">
         <button
           type="button"
-          class="group relative flex w-full justify-center rounded-md border border-gray-100 bg-white py-2 px-4 text-sm font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+          class="group relative flex w-full justify-center rounded-md border border-gray-100 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
           @click="handleGoogleLogin"
         >
           <div class="mx-2 flex items-center pl-3">
@@ -68,8 +68,7 @@ const handleGoogleLogin = async () => {
     method: 'POST',
     body: {
       accessToken
-    },
-    initialCache: false
+    }
   }).then(() => {
     navigateTo('/whoami')
   })
