@@ -8,7 +8,7 @@
     <span class="mt-4 text-2xl text-gray-600">回傳資料:</span>
     <p class="mt-4 text-3xl font-semibold text-blue-500">{{ data }}</p>
     <button
-      class="mt-6 rounded-sm bg-blue-500 py-3 px-8 text-xl font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+      class="mt-6 rounded-sm bg-blue-500 px-8 py-3 text-xl font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
       @click="refresh"
     >
       重新獲取資料
